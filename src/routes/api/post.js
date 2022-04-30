@@ -8,8 +8,8 @@ const route = express.Router()
 
 route.post("/", userLoggedIn, upload.array("image"), imageUpload, PostController.createPost)
 route.patch("/:postId", userLoggedIn, validatePostId, upload.array("image"), imageUpload, PostController.updatePost)
-route.get("/", userLoggedIn, PostController.findAllPosts)
-route.get("/:postId", userLoggedIn, validatePostId, PostController.findOne)
+route.get("/", PostController.findAllPosts)
+route.get("/:postId", validatePostId, PostController.findOne)
 route.delete("/:postId", userLoggedIn, validatePostId, PostController.deletePost)
 
 // upvotes
